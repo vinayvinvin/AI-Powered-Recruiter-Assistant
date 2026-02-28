@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microsoft Hiring Intelligence Platform - Recruiter Assistant</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <img src="https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE1Mu3b?ver=5c31" alt="Microsoft" width="108" height="24">
+                <span class="product-name">Hiring Intelligence</span>
+            </div>
+            <div class="user-info">
+                <span class="user-name">Sarah Chen</span>
+                <span class="user-role">Senior Technical Recruiter</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <button class="nav-btn active" data-view="dashboard">Dashboard</button>
+            <button class="nav-btn" data-view="requisitions">My Requisitions</button>
+            <button class="nav-btn" data-view="analytics">Analytics</button>
+            <button class="nav-btn" data-view="settings">Settings</button>
+        </div>
+    </nav>
+
+    <!-- Dashboard View -->
+    <main class="main-content" id="dashboard">
+        <div class="container">
+            <!-- Performance Overview -->
+            <section class="performance-overview">
+                <h2>Your AI-Powered Performance</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">⚡</div>
+                        <div class="stat-content">
+                            <h3>23.4 hours</h3>
+                            <p>Time saved this month</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🎯</div>
+                        <div class="stat-content">
+                            <h3>89%</h3>
+                            <p>AI accuracy rate</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">📈</div>
+                        <div class="stat-content">
+                            <h3>12/14</h3>
+                            <p>Approved candidates got offers</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🚀</div>
+                        <div class="stat-content">
+                            <h3>+47%</h3>
+                            <p>Throughput increase</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Active Requisitions -->
+            <section class="active-reqs">
+                <h2>Active Requisitions</h2>
+                <div class="req-card featured-req">
+                    <div class="req-header">
+                        <h3>Senior Frontend Engineer - Azure Portal Team</h3>
+                        <span class="req-status urgent">Urgent Priority</span>
+                    </div>
+                    <div class="req-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 72%"></div>
+                        </div>
+                        <span class="progress-text">347 of 523 applications screened</span>
+                    </div>
+                    <div class="req-stats">
+                        <div class="req-stat">
+                            <span class="label">Top Candidates</span>
+                            <span class="value">12 ready</span>
+                        </div>
+                        <div class="req-stat">
+                            <span class="label">Review Needed</span>
+                            <span class="value">23 pending</span>
+                        </div>
+                        <div class="req-stat">
+                            <span class="label">Time Remaining</span>
+                            <span class="value">2.1 hours</span>
+                        </div>
+                    </div>
+                    <div class="req-actions">
+                        <button class="btn-secondary" onclick="showCriteriaSetup()">Adjust Criteria</button>
+                        <button class="btn-primary" onclick="showShortlist()">Review Shortlist</button>
+                    </div>
+                </div>
+
+                <!-- Other Requisitions -->
+                <div class="req-list">
+                    <div class="req-item">
+                        <div class="req-info">
+                            <h4>Product Manager - Office 365</h4>
+                            <p>89 applications • Criteria set • Screening in progress</p>
+                        </div>
+                        <div class="req-status-badge">Active</div>
+                    </div>
+                    <div class="req-item">
+                        <div class="req-info">
+                            <h4>Data Scientist - Bing Search</h4>
+                            <p>156 applications • Awaiting criteria approval</p>
+                        </div>
+                        <div class="req-status-badge pending">Pending Setup</div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Criteria Setup Modal -->
+    <div class="modal" id="criteriaModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>🎯 Let's define what "great" looks like</h2>
+                <button class="close-btn" onclick="closeCriteriaSetup()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="criteria-intro">
+                    <p>Based on <strong>47 similar Engineering roles</strong>, here's what typically makes a strong hire:</p>
+                </div>
+                
+                <div class="criteria-builder">
+                    <div class="criterion">
+                        <div class="criterion-header">
+                            <label for="technical">Technical Skills</label>
+                            <div class="weight-control">
+                                <input type="range" id="technical" min="0" max="100" value="40">
+                                <span class="weight-value">40%</span>
+                            </div>
+                        </div>
+                        <div class="criterion-details">
+                            <div class="tags">
+                                <span class="tag">React</span>
+                                <span class="tag">Node.js</span>
+                                <span class="tag">TypeScript</span>
+                                <span class="tag add-tag">+ Add skill</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="criterion">
+                        <div class="criterion-header">
+                            <label for="experience">Experience Level</label>
+                            <div class="weight-control">
+                                <input type="range" id="experience" min="0" max="100" value="25">
+                                <span class="weight-value">25%</span>
+                            </div>
+                        </div>
+                        <div class="criterion-details">
+                            <p>3-5 years in similar role</p>
+                        </div>
+                    </div>
+
+                    <div class="criterion">
+                        <div class="criterion-header">
+                            <label for="growth">Growth Signals</label>
+                            <div class="weight-control">
+                                <input type="range" id="growth" min="0" max="100" value="20">
+                                <span class="weight-value">20%</span>
+                            </div>
+                        </div>
+                        <div class="criterion-details">
+                            <p>Leadership experience, mentoring, project ownership</p>
+                        </div>
+                    </div>
+
+                    <div class="criterion">
+                        <div class="criterion-header">
+                            <label for="culture">Culture Fit</label>
+                            <div class="weight-control">
+                                <input type="range" id="culture" min="0" max="100" value="15">
+                                <span class="weight-value">15%</span>
+                            </div>
+                        </div>
+                        <div class="criterion-details">
+                            <p>Collaboration, communication, growth mindset</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="criteria-actions">
+                    <button class="btn-secondary" onclick="closeCriteriaSetup()">Cancel</button>
+                    <button class="btn-primary" onclick="saveCriteria()">Save Criteria & Start Screening</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Shortlist Review Modal -->
+    <div class="modal large" id="shortlistModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Candidate Shortlist Review</h2>
+                <button class="close-btn" onclick="closeShortlist()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <!-- Top Candidates Section -->
+                <section class="candidate-section">
+                    <h3>🏆 TOP CANDIDATES (12) - Ready to Interview</h3>
+                    <div class="candidate-list">
+                        <div class="candidate-card top-tier" data-candidate="sarah">
+                            <div class="candidate-info">
+                                <div class="candidate-name">Sarah Kim</div>
+                                <div class="candidate-score">94%</div>
+                            </div>
+                            <div class="candidate-summary">6yr React + startup experience, team lead at Airbnb</div>
+                            <div class="candidate-actions">
+                                <button class="action-btn approved">✓</button>
+                                <button class="action-btn neutral">?</button>
+                                <button class="action-btn">×</button>
+                            </div>
+                        </div>
+
+                        <div class="candidate-card top-tier" data-candidate="mike">
+                            <div class="candidate-info">
+                                <div class="candidate-name">Mike Rodriguez</div>
+                                <div class="candidate-score">92%</div>
+                            </div>
+                            <div class="candidate-summary">MS intern → senior engineer, strong algorithmic background</div>
+                            <div class="candidate-actions">
+                                <button class="action-btn approved">✓</button>
+                                <button class="action-btn neutral">?</button>
+                                <button class="action-btn">×</button>
+                            </div>
+                        </div>
+
+                        <div class="candidate-card top-tier needs-review" data-candidate="lisa">
+                            <div class="candidate-info">
+                                <div class="candidate-name">Lisa Wang</div>
+                                <div class="candidate-score">89%</div>
+                            </div>
+                            <div class="candidate-summary">Career changer + bootcamp, impressive portfolio projects</div>
+                            <div class="candidate-actions">
+                                <button class="action-btn">✓</button>
+                                <button class="action-btn neutral active">?</button>
+                                <button class="action-btn">×</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Review Zone -->
+                <section class="candidate-section">
+                    <h3>🤔 REVIEW NEEDED (23) - Borderline cases</h3>
+                    <div class="review-summary">
+                        <p>These candidates scored 60-85%. Please review manually as they may have unique strengths not captured in initial screening.</p>
+                    </div>
+                    <button class="btn-secondary expand-section">Show Review Zone Candidates</button>
+                </section>
+
+                <!-- Diversity Check -->
+                <section class="diversity-section">
+                    <h3>⚖️ Diversity Monitoring</h3>
+                    <div class="diversity-stats">
+                        <div class="diversity-stat">
+                            <span class="label">Current shortlist demographics:</span>
+                            <span class="value good">42% women (vs 38% applicant pool)</span>
+                        </div>
+                        <div class="diversity-stat">
+                            <span class="label">Underrepresented minorities:</span>
+                            <span class="value warning">23% (vs 31% applicant pool)</span>
+                        </div>
+                    </div>
+                    <div class="diversity-actions">
+                        <button class="btn-secondary">Review highlighted borderline candidates</button>
+                    </div>
+                </div>
+            </section>
+
+                <div class="shortlist-actions">
+                    <button class="btn-secondary" onclick="closeShortlist()">Save Draft</button>
+                    <button class="btn-primary" onclick="finalizeShortlist()">Send to Hiring Manager</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
